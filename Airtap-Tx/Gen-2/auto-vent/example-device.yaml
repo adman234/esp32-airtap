@@ -1,0 +1,32 @@
+# AirTap Auto Vent -- DEVICE FILE TEMPLATE
+#
+# Copy this to <name>.yaml in your ESPHome config directory (next to your
+# secrets.yaml), fill in every placeholder below, and flash it. That's the whole
+# device config: the body is pulled from GitHub by `packages:` at compile time.
+# See README.md in this folder.
+
+substitutions:
+  # ESPHome node name = hostname = HA device. Unique per vent. Lowercase
+  # a-z 0-9 - only, max 31 chars. Renaming a deployed vent changes EVERY
+  # Home Assistant entity ID it owns.
+  name: "airtap-esp32-4btn-new"
+  friendly_name: "AirTap Vent CHANGE_ME"
+  # HA room temperature sensor. MUST natively report °F.
+  room_temp_entity: "sensor.CHANGE_ME_temperature"
+  # HA thermostat. MUST stay in heat_cool mode (needs target_temp_high/low).
+  thermostat_entity: "climate.CHANGE_ME"
+
+  # --- Optional overrides (defaults shown) ---
+  # default_speed: "4"                      # resting AUTO speed, 1-10
+  # log_level: "INFO"
+  # device_address: "<name>.local"          # set to the OLD address while a
+  #                                         # rename flash is pending
+
+packages:
+  airtap:
+    url: https://github.com/adman234/esp32-airtap
+    # Pin to a tag or commit SHA to freeze a vent on a known-good version;
+    # `main` means every compile picks up the latest body.
+    ref: main
+    files: [Airtap-Tx/Gen-2/auto-vent/airtap-auto-vent.yaml]
+    refresh: 0s                             # always fetch the latest ref

@@ -110,6 +110,12 @@ This is the second Generation of Airtap series. AC Infinity introduced a larger 
 | GPIO9     | Button Toggle | D9       |
 | GPIO10    | Button Menu   | D10      |
 
+### Gen 2 Rev 2 — Auto Vent (this fork)
+
+An ESPHome config for the Gen 2 Rev 2 board (XIAO ESP32-C6) that makes the vent decide for itself when to boost. It uses room temperature and thermostat setpoints from Home Assistant, the on-board duct probe, hysteresis and anti short-cycle protection, and needs no HA automations. Each vent is a short device file that pulls the shared body from this repo as a remote ESPHome package.
+
+[Auto Vent README](Airtap-Tx/Gen-2/auto-vent/README.md) · [Device file template](Airtap-Tx/Gen-2/auto-vent/example-device.yaml) · [Shared body](Airtap-Tx/Gen-2/auto-vent/airtap-auto-vent.yaml)
+
  ## Availability
 You can get the assembled boards in my [Shop](https://shop.silocitylabs.com/products/esp32-module-for-ac-infinity-airtap-t4-t6)
 
