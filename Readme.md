@@ -1,5 +1,12 @@
 # AC Infinity ESP32 Mods
 
+> **About this fork.** This is a fork of [SiloCityLabs/esp32-airtap](https://github.com/SiloCityLabs/esp32-airtap)
+> by Luis Rodriguez, who designed the replacement boards, the ESPHome configs and the 3D models, and sells
+> assembled boards in the [SiloCityLabs shop](https://shop.silocitylabs.com/products/esp32-module-for-ac-infinity-airtap-t4-t6).
+> Everything below is his, except the [Auto Vent](Airtap-Tx/Gen-2/auto-vent/README.md) package: an ESPHome config for
+> the Gen 2 Rev 2 board that decides by itself when to boost, using Home Assistant temperatures and the duct probe.
+> It is derived from his Gen 2 config and shared under the same CC BY-SA 4.0 license. It is not planned to be merged upstream.
+
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
 This repository contains code and instructions to modify the AC Infinity products with an ESP32 microcontroller. The ESP32 is a powerful microcontroller that can be used to control the fan speed, monitor temperature and humidity, and connect to the internet. The modifications described in this repository will allow you to control your fan remotely, set up schedules, and monitor environmental conditions in your grow room or other indoor space.
@@ -110,7 +117,7 @@ This is the second Generation of Airtap series. AC Infinity introduced a larger 
 | GPIO9     | Button Toggle | D9       |
 | GPIO10    | Button Menu   | D10      |
 
-### Gen 2 Rev 2 — Auto Vent (this fork)
+### Gen 2 Rev 2: Auto Vent (this fork)
 
 An ESPHome config for the Gen 2 Rev 2 board (XIAO ESP32-C6) that makes the vent decide for itself when to boost. It uses room temperature and thermostat setpoints from Home Assistant, the on-board duct probe, hysteresis and anti short-cycle protection, and needs no HA automations. Each vent is a short device file that pulls the shared body from this repo as a remote ESPHome package.
 
