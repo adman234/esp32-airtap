@@ -91,7 +91,7 @@ wifi:
   reboot_timeout: 10min
   # BLE (esp32_improv) is deliberately NOT enabled on this build. The C6 has a
   # single 2.4 GHz radio shared by WiFi and BLE, so dropping BLE frees the radio
-  # and lets us disable modem sleep for a much more responsive native API — which
+  # and lets us disable modem sleep for a much more responsive native API, which
   # matters here, because the auto logic is fed by HA-imported sensors.
   power_save_mode: NONE
   # Point this at the address the device answers on RIGHT NOW. After a rename
@@ -110,7 +110,7 @@ web_server:
     username: admin
     password: !secret web_password
 
-# Serial provisioning only — no BLE. Costs nothing, it is just UART.
+# Serial provisioning only, no BLE. Costs nothing, it is just UART.
 improv_serial:
 
 i2c:
@@ -205,7 +205,7 @@ script:
             return;
           }
 
-          // A state change is wanted — enforce the anti short-cycle hold.
+          // A state change is wanted: enforce the anti short-cycle hold.
           // last_fan_change_ms == 0 means we have not switched yet this boot.
           const uint32_t hold_ms =
               (uint32_t)(running ? id(min_run_seconds) : id(min_off_seconds)) * 1000UL;
